@@ -2,7 +2,7 @@ const pool = require('../db');
 const bcrypt = require('bcrypt');
 
 const registerUser = async (req, res) => {
-    const { username, password, first_name, last_name } = req.body;
+    const { username, email, password, first_name, last_name } = req.body;
 
     try {
         const userCheckQuery = 'SELECT * FROM users WHERE username = $1 OR email = $2';
