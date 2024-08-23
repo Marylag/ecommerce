@@ -2,7 +2,7 @@ const pool = require('../db');
 const bcrypt = require('bcrypt');
 
 const registerUser = async (req, res) => {
-    const { username, email, password, first_name, last_name } = req.body;
+    const { username, password, first_name, last_name } = req.body;
 
     try {
         const userCheckQuery = 'SELECT * FROM users WHERE username = $1 OR email = $2';
@@ -12,6 +12,7 @@ const registerUser = async (req, res) => {
             return res.status(400).json({ error: 'Username or email already exists'});
         }
 
+        const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, 10);
         console.log('Hashed Password:', hashedPassword);
 
