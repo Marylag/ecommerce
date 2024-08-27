@@ -34,9 +34,13 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 
 router.get('/google/callback', passport.authenticate('google', {
     failureRedirect: '/login',
-    session: true
+    session: false
 }), (req, res) => {
-    res.redirect('/');
+    if (!req.user) {
+        return res.status(401).json({ error: 'Authentication failed' });
+    }
+    const token = jwt.sign({ id: req.user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    res.redirect(`http://localhost:3000/home?token=${token}`);
 });
 
 router.get('/logout', (req, res) => {
