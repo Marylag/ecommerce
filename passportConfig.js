@@ -38,15 +38,18 @@ passport.use(new GoogleStrategy({
     },
     async (accessToken, refreshToken, profile, done) => {
         try {
-            const userResult = await pool.query('SELECT * FROM users WHERE oauth_provider = $1 AND oauth_id = $2', ['google', profile.id]);
+            const userResult = await pool.query(
+                'SELECT * FROM users WHERE email = $1 OR (oauth_provider = $2 AND oauth_id = $3)',
+                [profile.emails[0].value, 'google', profile.id]
+            );
 
             if (userResult.rows.length > 0) {
                 return done(null, userResult.rows[0]);
             } else {
                 const newUserResult = await pool.query(`
-                    INSERT INTO users (username, email, oauth_provider, oauth_id, created_at, updated_at)
-                    VALUES ($1, $2, $3, $4, NOW(), NOW())
-                    RETURNING *`, [profile.displayName, profile.emails[0].value, 'google', profile.id]);
+                    INSERT INTO users (username, email, oauth_provider, oauth_id, passwoed_hash, created_at, updated_at)
+                    VALUES ($1, $2, $3, $4, $5, NOW(), NOW())
+                    RETURNING *`, [profile.displayName, profile.emails[0].value, 'google', profile.id, 'OAuthNoPassword']);
 
                 return done(null, newUserResult.rows[0]);
             }
