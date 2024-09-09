@@ -1,0 +1,89 @@
+/* Order History Container */
+.order-history-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f6f2;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+/* Order History Heading */
+.order-history-container h2 {
+    font-size: 2.5rem;
+    color: #55311b;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Order List Styling */
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Individual Order Card */
+.order-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Order Info Styling */
+.order-info {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.order-info h2 {
+    font-size: 1.5rem;
+    color: #55311b;
+    margin-bottom: 10px;
+}
+
+/* Order Items List */
+.order-items ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-items ul li {
+    background-color: #f3ede4;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .order-history-container {
+        padding: 10px;
+    }
+
+    .order-card {
+        padding: 15px;
+    }
+
+    .order-info h2 {
+        font-size: 1.3rem;
+    }
+
+    .order-info p {
+        font-size: 1rem;
+    }
+}

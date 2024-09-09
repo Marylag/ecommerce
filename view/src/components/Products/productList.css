@@ -1,0 +1,73 @@
+/* General body settings for the ecommerce store */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f6f2;
+    color: #333;
+    text-align: center;
+}
+
+/* Loading and error message styling */
+p {
+    font-size: 1rem; /* Made the text slightly smaller */
+    color: #555;
+    padding: 0 20px;
+}
+
+/* Container for the product list */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Styling each product item */
+.product {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Image within each product */
+.product img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #e0c097;
+}
+
+/* Remove underline for all links globally */
+a {
+    text-decoration: none;
+    color: inherit; /* Ensure links keep the color of the surrounding text */
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    .product-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .product-info h2 {
+        font-size: 1rem; /* Smaller product title on mobile */
+    }
+
+    .product-info p {
+        font-size: 0.8rem; /* Smaller product description on mobile */
+    }
+
+    .product-info .add-to-cart {
+        font-size: 0.85rem; /* Smaller button text on mobile */
+        padding: 6px 12px;
+    }
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Product from './Product';
-import './product.css';
+import './productList.css';
 
 function ProductList() {
     const [products, setProducts] = useState([]);
@@ -41,5 +41,3 @@ function ProductList() {
 }
 
 export default ProductList;
-
-

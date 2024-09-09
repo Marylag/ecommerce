@@ -1,0 +1,124 @@
+/* Container for the Product Details */
+.product-details-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Product details main section (image left, info right) */
+.product-details {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+/* Product Image Styling */
+.product-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Info Styling */
+.product-info {
+    flex: 1;
+}
+
+.product-info h2 {
+    font-size: 2rem;
+    color: #55311b; /* Chocolate-themed color */
+    margin-bottom: 20px;
+}
+
+.product-info p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Price Styling */
+.product-info .price {
+    font-size: 1.5rem;
+    color: #d2691e;
+    font-weight: bold;
+}
+
+/* Quantity Input */
+.quantity-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.quantity-container label {
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+.quantity-container input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Add to Cart Button */
+.product-info button {
+    background-color: #d2691e;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-info button:hover {
+    background-color: #b35a1e;
+}
+
+.product-info button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Related Products Section */
+.related-products {
+    margin-top: 40px;
+}
+
+.related-products h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #55311b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-image {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .product-info {
+        text-align: center;
+    }
+
+    .related-products {
+        text-align: center;
+    }
+}

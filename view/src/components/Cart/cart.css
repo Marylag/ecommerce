@@ -1,0 +1,163 @@
+/* Cart window styling */
+.cart {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    text-align: center;
+}
+
+/* Cart heading */
+.cart h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #55311b;
+}
+
+/* Cart items list */
+.cart-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual cart item styling */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* Cart item image */
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+/* Cart item info */
+.cart-item-info {
+    flex: 1;
+    text-align: left;
+}
+
+.cart-item-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.cart-item-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Remove button styling */
+.cart-item-info button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item-info button:hover {
+    background-color: #e43b3b;
+}
+
+/* Cart total section */
+.cart-total {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #55311b;
+}
+
+/* Checkout button styling */
+.cart-total button {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.cart-total button:hover {
+    background-color: #4cae4c;
+}
+
+/* Payment form styling */
+form {
+    margin-top: 20px;
+}
+
+form button {
+    background-color: #d2691e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #b35a1e;
+}
+
+form button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Stripe CardElement styling */
+.StripeElement {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .cart {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item-image {
+        margin-bottom: 10px;
+    }
+
+    .cart-item-info h4 {
+        font-size: 1.1rem;
+    }
+
+    .cart-total {
+        font-size: 1.3rem;
+    }
+}
