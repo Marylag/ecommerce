@@ -1,25 +1,13 @@
 const pool = require('../db');
 
 const getAllOrders = async (req, res) => {
-    const userId = req.user ? req.user.id : null;
-
-    if (!userId) {
-        return res.status(401).json({ error: 'User not authenticated' });
-    }
-
+    const userId = req.user.id;
+    console.log('Fetching orders for user ID:', userId);
     try {
-        const ordersResult = await pool.query(
-            'SELECT * FROM orders WHERE user_id = $1 ORDER BY created_at DESC',
-            [userId]
-        );
-
-        if (ordersResult.rows.length === 0) {
-            return res.status(404).json({ error: 'No orders found'});
-        }
-
-        res.json(ordersResult.rows);
+        const orders = await pool.query('SELECT * FROM orders WHERE user_id = $1', [userId]);
+        res.status(200).json(orders.rows);
     } catch (err) {
-        console.error('Error retrieving orders:', err);
+        console.error('Error fetching orders:', err);
         res.status(500).json({ error: 'Internal server error' });
     }
 };
@@ -29,26 +17,20 @@ const getOrderById = async (req, res) => {
     const userId = req.user.id;
 
     try {
-        const orderResult = await pool.query(
-            'SELECT * FROM orders WHERE id = $1 AND user_id = $2',
-            [orderId, userId]
+        const orderData = await pool.query(
+            `SELECT o.*, oi.*
+            FROM orders o
+            JOIN order_items oi ON o.id = oi.order_id
+            WHERE o.id = $1 AND o.user_id = $2`, [orderId, userId]
         );
 
-        if (orderResult.rows.length === 0) {
-            return res.status(404).json({ error: 'Order not found' });
+        if (orderData.rows.length === 0) {
+            return res.status(404).json({ message: 'Order not found' });
         }
 
-        const orderItemsResult = await pool.query(
-            'SELECT * FROM order_items WHERE order_id = $1',
-            [orderId]
-        );
-
-        res.json({
-            order: orderResult.rows[0],
-            items: orderItemsResult.rows
-        });
+        res.status(200).json(orderData.rows);
     } catch (err) {
-        console.error('Error retrieving order:', err);
+        console.error('Error fetching order:', err);
         res.status(500).json({ error: 'Internal server error' });
     }
 };

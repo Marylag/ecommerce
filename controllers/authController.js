@@ -33,8 +33,12 @@ const registerUser = async (req, res) => {
 
         res.status(201).json(newUser);
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Internal server error'});
+        if (err.code === '23505') {
+            res.status(400).json({ err: 'User with this email already exists' });
+        } else {
+            console.error('Error registering user:', err);
+            res.status(500).json({ err: 'Internal server error' });
+        }
     }
 };
 
