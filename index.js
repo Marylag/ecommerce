@@ -1,6 +1,8 @@
 const express = require('express');
 const session = require('express-session');
 const passport = require('./passportConfig');
+const pgSession = require('connect-pg-simple')(session);
+const pool = require('./db');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
 const productRoutes = require('./routes/products');
@@ -20,13 +22,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-  })
-);
+app.use(session({
+  store: new pgSession({
+    pool: pool,
+    tableName: 'session'
+  }),
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 30 * 24 * 60 * 60 * 1000
+  }
+}));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -41,11 +48,11 @@ app.get('/', (req, res) => {
 });
 
 // API Routes
-app.use('/orders', passport.authenticate('local', { session:false }), orderRoutes);
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 app.use('/products', productRoutes);
 app.use('/cart', cartRoutes);
+app.use('/orders', orderRoutes);
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)

@@ -47,7 +47,7 @@ passport.use(new GoogleStrategy({
                 return done(null, userResult.rows[0]);
             } else {
                 const newUserResult = await pool.query(`
-                    INSERT INTO users (username, email, oauth_provider, oauth_id, passwoed_hash, created_at, updated_at)
+                    INSERT INTO users (username, email, oauth_provider, oauth_id, password_hash, created_at, updated_at)
                     VALUES ($1, $2, $3, $4, $5, NOW(), NOW())
                     RETURNING *`, [profile.displayName, profile.emails[0].value, 'google', profile.id, 'OAuthNoPassword']);
 
