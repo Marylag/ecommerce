@@ -4,6 +4,12 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
+  font-size: 16px;
+}
+
+/* Main App Container (to ensure isolation of app-specific styles) */
+.app-container {
+  padding: 0;
 }
 
 /* Navbar Styles */
@@ -35,8 +41,8 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Form Container */
-form {
+/* General Form Styles for Other Pages (Not Login/Register) */
+.app-form {
   background-color: white;
   padding: 20px;
   margin: 50px auto;
@@ -46,20 +52,19 @@ form {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Form Fields */
-form div {
+.app-form div {
   margin-bottom: 15px;
 }
 
-form label {
+.app-form label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
+.app-form input[type="text"],
+.app-form input[type="email"],
+.app-form input[type="password"] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -67,8 +72,7 @@ form input[type="password"] {
   font-size: 16px;
 }
 
-/* Form Buttons */
-form button {
+.app-form button {
   background-color: #5cb85c;
   color: white;
   padding: 10px 15px;
@@ -79,10 +83,11 @@ form button {
   width: 100%;
 }
 
-form button:hover {
+.app-form button:hover {
   background-color: #4cae4c;
 }
 
+/* General Paragraph and Link Styling */
 p {
   text-align: center;
 }
@@ -97,8 +102,27 @@ p a:hover {
 }
 
 /* Error Messages */
-p[style] {
+p.error-message {
   color: red;
   text-align: center;
   font-weight: bold;
+}
+
+/* Product List and Details Specific Styling */
+.product-list-container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+}
+
+.product-list-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.product-details {
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
