@@ -1,0 +1,123 @@
+/* Main container for the login page */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f6f2; /* Soft background color */
+}
+
+/* Login form styling */
+.login-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-form h2 {
+    font-size: 2rem;
+    color: #55311b; /* Chocolate-inspired color */
+    margin-bottom: 30px;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-form label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login-form input:focus {
+    border-color: #d2691e; /* Highlight input field with chocolate color on focus */
+    outline: none;
+}
+
+/* Error message */
+.login-form p {
+    color: red;
+    font-size: 0.9rem;
+}
+
+/* Login button styling */
+.login-form button {
+    background-color: #d2691e;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #b35a1e;
+}
+
+/* Google login button styling */
+.google-login-btn {
+    background-color: #db4437;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.google-login-btn:hover {
+    background-color: #c23321;
+}
+
+/* Register link styling */
+.login-form .register {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.login-form .register a {
+    color: #d2691e;
+    text-decoration: none;
+}
+
+.login-form .register a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .login-form {
+        padding: 20px;
+    }
+
+    .login-form h2 {
+        font-size: 1.8rem;
+    }
+
+    .login-form button,
+    .google-login-btn {
+        font-size: 1rem;
+    }
+}

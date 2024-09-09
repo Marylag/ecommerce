@@ -1,0 +1,114 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f6f2;
+    color: #333;
+}
+
+/* Center the register form */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+    background-color: #f3ede4; /* Slight contrast for background */
+}
+
+/* Styling for the form container */
+.register-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Headline for the register */
+.register-form h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #55311b;
+    margin-bottom: 20px;
+}
+
+/* Input fields styling */
+.register-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Label for input fields */
+.register-form label {
+    font-size: 1rem;
+    color: #55311b;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Button styling */
+.register-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #d2691e;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.register-form button:hover {
+    background-color: #b35a1e;
+}
+
+/* Error message styling */
+.register-form p {
+    color: #777;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Text below the form for login */
+.register-form p.login {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+/* Links styling, remove underline */
+.register-form a {
+    color: #d2691e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-form a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .register-form {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .register-form h2 {
+        font-size: 1.5rem;
+    }
+
+    .register-form button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}

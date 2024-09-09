@@ -1,0 +1,116 @@
+/* About Section Container */
+.about-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #f9f6f2; /* Light background for a warm, chocolate-themed look */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+/* About Heading */
+.about-container h1 {
+    font-size: 2.8rem;
+    color: #55311b; /* Chocolate-inspired color */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* About Content */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* About Text */
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: justify;
+    color: #555;
+}
+
+/* Images Section */
+.about-images {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.about-images img {
+    width: calc(50% - 10px); /* Adjusting width for two images with space between */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-images img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Testimonials Section */
+.testimonials {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.testimonials h3 {
+    font-size: 2rem;
+    color: #55311b;
+    margin-bottom: 20px;
+}
+
+.testimonials blockquote {
+    background-color: #f3ede4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.testimonials blockquote::before {
+    content: open-quote;
+    font-size: 3rem;
+    color: #d2691e;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+}
+
+.testimonials cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #777;
+    text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .about-images {
+        flex-direction: column;
+    }
+
+    .about-images img {
+        width: 100%;
+    }
+
+    .testimonials h3 {
+        font-size: 1.5rem;
+    }
+
+    .testimonials blockquote {
+        font-size: 1rem;
+    }
+}
