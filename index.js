@@ -23,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({
   origin: 'https://ecommerce-0jzl.onrender.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
 }));
 
 app.use(session({
