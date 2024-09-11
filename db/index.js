@@ -11,7 +11,11 @@ const pool = new Pool ({
     host: process.env.HOST,
     database: process.env.DATABASE,
     password: process.env.PASSWORD,
-    port: process.env.DB_PORT
+    port: process.env.DB_PORT,
+    connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 (async () => {
