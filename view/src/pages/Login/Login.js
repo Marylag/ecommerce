@@ -18,7 +18,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:5000/auth/login', { username, password });
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, { username, password });
 
             if (response.status === 200 && response.data.token) {
                 const token = response.data.token;
@@ -41,7 +41,7 @@ function Login() {
     };
 
     const handleGoogleLogin = () => {
-        window.location.href = 'http://localhost:5000/auth/google'; // This will trigger Google OAuth flow
+        window.location.href = `${process.env.REACT_APP_API_URL}/auth/google`;
     };
 
     return (

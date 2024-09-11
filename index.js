@@ -20,7 +20,10 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+  origin: 'https://ecommerce-0jzl.onrender.com',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
 
 app.use(session({
   store: new pgSession({

@@ -15,7 +15,7 @@ function Register() {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            const response = await axious.post('http://localhost:5000/auth/register', { 
+            const response = await axious.post(`${process.env.REACT_APP_API_URL}/auth/register`, { 
                 username,
                 email,
                 first_name: firstName,

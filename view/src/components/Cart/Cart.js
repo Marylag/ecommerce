@@ -24,7 +24,7 @@ function Cart() {
                     return;
                 }
 
-                const response = await axios.get('http://localhost:5000/cart', {
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/cart`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -52,7 +52,7 @@ function Cart() {
             }
 
             // Send DELETE request to remove the item from the cart
-            await axios.delete(`http://localhost:5000/cart/items/${itemId}`, {
+            await axios.delete(`${process.env.REACT_APP_API_URL}/cart/items/${itemId}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -75,7 +75,7 @@ function Cart() {
 
         try {
             // Send cart items to backend to create payment intent
-            const response = await axios.post('http://localhost:5000/cart/checkout', { cartItems }, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/cart/checkout`, { cartItems }, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
@@ -114,7 +114,7 @@ function Cart() {
             // Send the paymentIntentId and cartItems to the backend to complete the order
             const token = localStorage.getItem('token');
             try {
-                await axios.post('http://localhost:5000/cart/order', {
+                await axios.post(`${process.env.REACT_APP_API_URL}/cart/order`, {
                     paymentIntentId: paymentIntent.id,
                     cartItems
                 }, {
