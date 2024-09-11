@@ -20,8 +20,17 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const allowedOrigins = ['https://view-qodx.onrender.com', 'https://ecommerce-0jzl.onrender.com'];
+
 app.use(cors({
-  origin: 'https://ecommerce-0jzl.onrender.com',
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
