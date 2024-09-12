@@ -3,6 +3,8 @@
 ## Description
 This is a full-stack e-commerce application that allows users to browse products, add items to a cart, make payments via Stripe, and manage orders. It also includes authentication via email/password and Google OAuth.
 
+![Project screenshot](https://i.imgur.com/WFKrP1C.png)
+
 ## Features
 - User authentication (Login, Registration, and Google OAuth)
 - Browsing products and viewing product details
