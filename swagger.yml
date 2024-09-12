@@ -4,9 +4,23 @@ info:
   description: API documentation for the E-commerce platform
   version: 1.0.0
 
+services:
+  - type: web
+    name: ecommerce
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    nodeVersion: 16.15.1
+
+
 servers:
-  - url: http://localhost:3000
-    description: Local server
+  - url: https://view-qodx.onrender.com
+    description: Render server
 
 paths:
   /auth/register:
