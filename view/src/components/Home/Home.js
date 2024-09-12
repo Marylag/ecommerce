@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ProductList from '../../components/Products/ProductList';
+import ProductList from '../../pages/Products/ProductList';
 import './home.css';
 
 function Home() {

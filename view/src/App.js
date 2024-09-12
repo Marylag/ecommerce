@@ -1,17 +1,17 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import About from './pages/About/About';
-import Contact from './pages/Contact/Contact';
+import Home from './components/Home/Home';
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import GoogleLoginRedirect from './pages/Login/GoogleLoginRedirect';
 import Navbar from './components/Navigation/Navbar';
-import ProductDetails from './components/Products/ProductDetails';
-import Cart from './components/Cart/Cart';
-import OrderHistory from './components/Orders/OrderHistory';
-import ProductList from './components/Products/ProductList';
+import ProductDetails from './pages/Products/ProductDetails';
+import Cart from './pages/Cart/Cart';
+import OrderHistory from './pages/Orders/OrderHistory';
+import ProductList from './pages/Products/ProductList';
 import Footer from './components/Footer/Footer';
 import { UserProvider } from './context/UserContext';
 
